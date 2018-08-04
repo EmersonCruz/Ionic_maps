@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
 
 declare var google: any;
 
@@ -8,10 +10,30 @@ declare var google: any;
   templateUrl: 'home.html'
 })
 export class HomePage {
-  @ViewChild('map') mapRef: Element;
-  constructor(public navCtrl: NavController) {
+  
+  @ViewChild('map') mapRef: ElementRef;
+  map: any;
+
+  constructor(public navCtrl: NavController, private platform: Platform/*, private geolocation: Geolocation*/) {
+    /*platform.ready().then(() => {
+
+      // get current position
+     geolocation.getCurrentPosition().then(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      });
+
+      const watch = geolocation.watchPosition().subscribe(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      });
+
+      // to stop watching
+      watch.unsubscribe();
+
+    });*/
 
   }
+
+  
   ionViewDidLoad() {
   
     this.showMap();
