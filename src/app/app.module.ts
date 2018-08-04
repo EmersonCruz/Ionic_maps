@@ -8,7 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { Geolocation } from '@ionic-native/geolocation';
-import { Platform } from 'ionic-angular';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { Platform } from 'ionic-angular';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen, Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
     
 
